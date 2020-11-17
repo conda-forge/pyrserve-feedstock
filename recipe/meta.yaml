@@ -10,32 +10,38 @@ source:
   sha256: d8d8563a265ad5b83362bc3e001fb9d6a5133190f8c9884914d7c91ff99d7310
 
 build:
-  number: 1
-  script: "{{ PYTHON }} -m pip install . --no-deps --ignore-installed -vv "
+  number: 2
+  noarch: python
+  script: {{ PYTHON }} -m pip install . -vv
 
 requirements:
   host:
     - numpy
     - pip
-    - python
+    - python >=3.6
   run:
     - numpy
     - pytest
-    - python
+    - python >=3.6
 
 test:
   imports:
     - pyRserve
+  commands:
+    - pip check
+  requires:
+    - pip
 
 about:
   home: http://pypi.python.org/pypi/pyRserve/
   license: MIT
   license_family: MIT
-  license_file: 
+  license_file: LICENSE
   summary: A Python client to remotely access the R statistic package via network
-  doc_url: 
-  dev_url: 
+  doc_url: https://pythonhosted.org/pyRserve/
+  dev_url: https://github.com/ralhei/pyRserve
 
 extra:
   recipe-maintainers:
+    - anthchirp
     - trachtok
