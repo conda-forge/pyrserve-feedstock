@@ -6,11 +6,11 @@ package:
   version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
+  url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
   sha256: b96b439bc63ed45315eae2bcf7be5301444fc21f7632743538d2c438d287b286
 
 build:
-  number: 0
+  number: 1
   noarch: python
   script: {{ PYTHON }} -m pip install . -vv
 
@@ -18,11 +18,11 @@ requirements:
   host:
     - numpy
     - pip
-    - python >=3.6
+    - python {{ python_min }}
   run:
     - numpy
     - pytest
-    - python >=3.6
+    - python >={{ python_min }}
 
 test:
   imports:
@@ -31,6 +31,7 @@ test:
     - pip check
   requires:
     - pip
+    - python {{ python_min }}
 
 about:
   home: http://pypi.python.org/pypi/pyRserve/
