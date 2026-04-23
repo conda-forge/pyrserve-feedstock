@@ -1,13 +1,13 @@
 {% set name = "pyRserve" %}
-{% set version = "1.0.3" %}
+{% set version = "1.0.4" %}
 
 package:
   name: {{ name|lower }}
   version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: b96b439bc63ed45315eae2bcf7be5301444fc21f7632743538d2c438d287b286
+  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name|lower }}/{{ name|lower }}-{{ version }}.tar.gz
+  sha256: 29c57f375afc38642cdea7df477b9f565f07805656aa1066bba8cfcb04dfa61a
 
 build:
   number: 0
